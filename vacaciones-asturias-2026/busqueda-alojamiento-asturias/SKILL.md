@@ -197,8 +197,15 @@ Si hay resultados fuera de la zona preferida, sepáralos visualmente con un sepa
 
 Diseño: fondo gris claro, tarjetas blancas con border-radius, colores verdes (#1a6b3c) solo para fondos y bordes, responsive con max-width 620px.
 
-**IMPORTANTE — Botones en HTML de correo:** Gmail ignora `background-color` en CSS en algunos clientes. Para que los botones se vean correctamente en Gmail y en iPhone, usa SIEMPRE el atributo HTML `bgcolor` además del estilo CSS en el `<td>`:
+**IMPORTANTE — Fondos de color en HTML de correo (Gmail):** Gmail ignora `background-color` en CSS inline en `<div>` y `<span>`. Esto afecta a **botones Y badges de color**. Si usas texto blanco sobre fondo de color en un `<div>` o `<span>`, el fondo desaparece en Gmail y el texto queda invisible (blanco sobre blanco).
 
+**Regla:** Cualquier elemento con fondo de color y texto blanco (o texto claro) DEBE implementarse con `<table>/<td bgcolor="...">`. Esto incluye:
+- Botones "Ver en Booking", "Ver en Airbnb"
+- El badge "✅ CASA YA RESERVADA"
+- Badges de puntuación, zona preferida, novedad, presupuesto
+- Cualquier etiqueta con fondo oscuro
+
+Patrón para **botones**:
 ```html
 <table cellpadding="0" cellspacing="0" border="0" style="margin-top:14px;">
   <tr>
@@ -209,7 +216,21 @@ Diseño: fondo gris claro, tarjetas blancas con border-radius, colores verdes (#
 </table>
 ```
 
-El atributo `bgcolor` en el `<td>` es lo que garantiza el fondo verde en Gmail. El color va en el `<td>`, no en el `<a>`.
+Patrón para **badges inline** (varios en la misma fila):
+```html
+<table cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;border-collapse:separate;border-spacing:4px 0;">
+  <tr>
+    <td bgcolor="#1a6b3c" style="background-color:#1a6b3c;border-radius:4px;padding:2px 8px;">
+      <span style="font-size:12px;font-weight:bold;color:#ffffff;font-family:Arial,sans-serif;">⭐ 9.6</span>
+    </td>
+    <td bgcolor="#e3f2fd" style="background-color:#e3f2fd;border-radius:4px;padding:2px 8px;">
+      <span style="font-size:12px;color:#1565c0;font-family:Arial,sans-serif;">🆕 Nuevo</span>
+    </td>
+  </tr>
+</table>
+```
+
+El atributo `bgcolor` en el `<td>` es lo que garantiza el fondo en Gmail. **Nunca uses `<div style="background-color:...">` con texto blanco.**
 
 Usa create_draft de Gmail con:
 - to: lista completa de correo.destinatarios del YAML
