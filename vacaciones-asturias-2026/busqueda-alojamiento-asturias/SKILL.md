@@ -181,48 +181,7 @@ Fondo con gradiente verde, título "Alojamiento [destino] · [mes año]" en text
 
 ### 6.2 — Tarjeta Airbnb "Casa ya reservada" — OBLIGATORIA, VA AQUÍ SIEMPRE
 
-Esta sección va SIEMPRE, justo después de la cabecera. Usa los datos del PASO 0. El HTML de esta tarjeta es:
-
-```html
-<!-- CASA AIRBNB — SIEMPRE PRESENTE -->
-<div style="background:#f0f4ff;border:2px solid #2c3e7a;border-radius:10px;padding:18px;margin-bottom:16px;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td>
-        <div style="font-size:16px;font-weight:bold;color:#1a1a1a;">🏠 Casa rústica L'alloru en aldea de Llanes</div>
-        <div style="color:#555;font-size:13px;margin-top:2px;">📍 Vibaño, Asturias · Zona Llanes (Costa Oriental)</div>
-      </td>
-      <td align="right" valign="top">
-        <div style="font-size:20px;font-weight:bold;color:#2c3e7a;">€1,950</div>
-        <div style="color:#777;font-size:12px;">total 6 noches · €325/noche</div>
-      </td>
-    </tr>
-  </table>
-  <div style="margin:8px 0 0;">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tr>
-        <td bgcolor="#2c3e7a" style="background-color:#2c3e7a;border-radius:4px;padding:3px 10px;">
-          <span style="font-size:12px;font-weight:bold;color:#ffffff;font-family:Arial,sans-serif;">✅ YA RESERVADA</span>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div style="margin:10px 0;font-size:13px;color:#333;">
-    6 viajeros · 3 dormitorios · 6 camas · 2,5 baños<br>
-    Cocina ✅ · Wifi ✅ · Parking gratuito ✅ · TV · Lavadora<br>
-    Belén — Superanfitriona · 4,57/5 · Anuncio nuevo (sin reseñas propias aún)<br>
-    <span style="color:#c0392b;">⚠️ Sin detector de CO ni de humo indicados. Cámaras en exteriores.</span>
-  </div>
-  <table cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
-    <tr>
-      <td bgcolor="#2c3e7a" style="background-color:#2c3e7a;border-radius:6px;mso-padding-alt:9px 20px;">
-        <a href="https://www.airbnb.es/rooms/1700803072233117740" target="_blank" style="display:inline-block;color:#ffffff;text-decoration:none;font-size:13px;font-weight:bold;padding:9px 20px;border-radius:6px;font-family:Arial,sans-serif;">Ver en Airbnb &#8594;</a>
-      </td>
-    </tr>
-  </table>
-  <div style="margin-top:10px;font-size:12px;color:#888;">Los resultados de Booking a continuación se muestran como posibles alternativas o mejoras a esta reserva.</div>
-</div>
-```
+Inserta aquí la tarjeta de la casa ya reservada usando los datos y el HTML definidos en el PASO 0. Borde azul-índigo (#2c3e7a), etiqueta "✅ YA RESERVADA", botón "Ver en Airbnb →".
 
 ### 6.3 — Nota de presupuesto
 
