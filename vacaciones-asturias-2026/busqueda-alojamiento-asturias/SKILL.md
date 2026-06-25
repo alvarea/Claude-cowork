@@ -5,24 +5,47 @@ description: Búsqueda diaria de alojamiento en Asturias para agosto 2026
 
 Eres un agente de búsqueda de alojamiento vacacional. Tu tarea es ejecutar una búsqueda diaria en Booking.com con los parámetros del usuario, aplicar filtros de calidad y proximidad a autopista, y enviar un informe HTML completo por correo Gmail.
 
-## PASO 0 — Casa ya reservada en Airbnb (SIEMPRE PRESENTE EN EL INFORME)
+## PASO 0 — Alojamientos ya reservados (SIEMPRE PRESENTES EN EL INFORME)
 
-Este paso NO es opcional. Independientemente de lo que encuentres en Booking, el correo final SIEMPRE debe incluir la tarjeta de la casa ya reservada. Consúltala aquí como referencia fija — no necesitas buscarla en ningún sitio:
+Este paso NO es opcional. Independientemente de lo que encuentres en Booking, el correo final SIEMPRE debe incluir **las dos tarjetas** de los alojamientos ya reservados. Son datos fijos — no necesitas buscarlos en ningún sitio.
+
+### Reserva 1 — Airbnb (noches 1–6: 3–9 agosto)
 
 ```
-Nombre:       Casa rústica L'alloru en aldea de Llanes
-URL:          https://www.airbnb.es/rooms/1700803072233117740
-Ubicación:    Vibaño, Asturias (zona Llanes — Costa Oriental)
-Capacidad:    6 viajeros · 3 dormitorios · 6 camas · 2,5 baños
-Precio:       1.950 € / 6 noches (3–9 agosto 2026) — YA RESERVADA ✅
-Comodidades:  Cocina ✅ · Wifi ✅ · Parking gratuito ✅ · TV · Lavadora
-Anfitriona:   Belén — Superanfitriona · 9 años experiencia · 4,57/5 (241 reseñas en otros alojamientos)
-Reseñas:      Anuncio nuevo (sin reseñas propias aún)
-Registro:     VV-3953-AS
-Notas:        ⚠️ Sin detector de CO ni de humo indicados. Cámaras en exteriores.
+Nombre:         Casa rústica L'alloru en aldea de Llanes
+Plataforma:     Airbnb
+URL:            https://www.airbnb.es/rooms/1700803072233117740
+Ubicación:      Vibaño, Asturias (zona Llanes — Costa Oriental)
+Capacidad:      6 viajeros · 3 dormitorios · 6 camas · 2,5 baños
+Precio:         1.950 € / 6 noches (3–9 agosto 2026) — YA RESERVADA ✅
+Comodidades:    Cocina ✅ · Wifi ✅ · Parking gratuito ✅ · TV · Lavadora
+Anfitriona:     Belén — Superanfitriona · 9 años experiencia · 4,57/5 (241 reseñas)
+Reseñas:        Anuncio nuevo (sin reseñas propias aún)
+Registro:       VV-3953-AS
+Cancelación:    ⚠️ Fecha límite cancelación gratuita: 02/08/2026
+Notas:          ⚠️ Sin detector de CO ni de humo indicados. Cámaras en exteriores.
 ```
 
-La tarjeta se posiciona en el correo justo después de la cabecera y antes de cualquier resultado de Booking. Diseño: borde azul-índigo (#2c3e7a), etiqueta "✅ YA RESERVADA", botón "Ver en Airbnb →" con bgcolor="#2c3e7a". Debajo, en texto gris: "Los resultados de Booking a continuación se muestran como posibles alternativas o mejoras a esta reserva."
+### Reserva 2 — Booking.com (noches 1–6: 3–9 agosto)
+
+```
+Nombre:         Apartamentos Rurales El Solsuco (La Galería)
+Plataforma:     Booking.com
+URL:            https://www.booking.com/hotel/es/apartamentos-rurales-el-solsuco-la-galeria.html?aid=8132308&checkin=2026-08-03&checkout=2026-08-09&no_rooms=1&group_adults=6&selected_currency=EUR
+Ubicación:      Sampedrin s/n Rozaes, Villaviciosa, Asturias (Zona Preferida ⭐)
+Capacidad:      6 viajeros
+Precio:         1.920 € / 6 noches (3–9 agosto 2026) — YA RESERVADA ✅
+Comodidades:    Parking ✅ · Wifi ✅ · Jardín ✅ · Terraza ✅ · BBQ ✅ · Playa cercana
+Valoración:     Sin puntuación (anuncio nuevo)
+Cancelación:    ⚠️ Fecha límite cancelación gratuita: 19/07/2026
+Notas:          Zona preferida del grupo · 8,7 km de la A-8
+```
+
+Las dos tarjetas se posicionan en el correo **justo después de la cabecera** y **antes de cualquier resultado de Booking**. Diseño para ambas: borde azul-índigo (#2c3e7a), etiqueta "✅ YA RESERVADA", con la plataforma indicada en el encabezado de la tarjeta. Botón "Ver en Airbnb →" (Reserva 1) y "Ver en Booking →" (Reserva 2), ambos con bgcolor="#2c3e7a".
+
+La fecha límite de cancelación debe destacarse visualmente: si está dentro de los próximos 7 días, muéstrala en rojo; si está entre 8–14 días, en naranja; si es más lejana, en verde. Si el campo dice "[COMPLETAR]", muéstralo en gris.
+
+Debajo de las dos tarjetas, en texto gris: "Los resultados de Booking a continuación se muestran como posibles alternativas para ampliar el viaje o como referencia de precios."
 
 ## PASO 1 — Leer parámetros desde Google Drive
 
@@ -179,9 +202,9 @@ Construye el HTML siguiendo esta estructura en orden exacto. No omitas ninguna s
 
 Fondo con gradiente verde, título "Alojamiento [destino] · [mes año]" en texto NEGRO, negrita, font-size 28px, subtítulo con fechas/adultos/presupuesto también en negro. NO usar texto verde ni blanco en la cabecera.
 
-### 6.2 — Tarjeta Airbnb "Casa ya reservada" — OBLIGATORIA, VA AQUÍ SIEMPRE
+### 6.2 — Tarjetas de alojamientos ya reservados — OBLIGATORIAS, VAN AQUÍ SIEMPRE
 
-Inserta aquí la tarjeta de la casa ya reservada usando los datos y el HTML definidos en el PASO 0. Borde azul-índigo (#2c3e7a), etiqueta "✅ YA RESERVADA", botón "Ver en Airbnb →".
+Inserta aquí las **dos tarjetas** de alojamientos ya reservados usando los datos del PASO 0. Primero Reserva 1 (Airbnb · L'alloru · Vibaño), luego Reserva 2 (Booking · El Solsuco · Villaviciosa). Ambas con borde azul-índigo (#2c3e7a) y etiqueta "✅ YA RESERVADA". La fecha límite de cancelación con color según urgencia (rojo/naranja/verde/gris según PASO 0).
 
 ### 6.3 — Nota de presupuesto
 
@@ -223,10 +246,13 @@ Diseño: fondo gris claro, tarjetas blancas con border-radius, verde (#1a6b3c) p
 
 Antes de enviar, confirma que el HTML cumple todos estos puntos:
 
-- [ ] La tarjeta azul "Casa rústica L'alloru · Vibaño" aparece DESPUÉS de la cabecera y ANTES de los resultados de Booking
-- [ ] La tarjeta tiene el botón "Ver en Airbnb" con bgcolor="#2c3e7a"
-- [ ] La etiqueta "✅ YA RESERVADA" está visible
-- [ ] Los resultados de Booking vienen DESPUÉS de la tarjeta Airbnb
+- [ ] Tarjeta 1 "Casa rústica L'alloru · Vibaño" (Airbnb) aparece DESPUÉS de la cabecera y ANTES de los resultados de Booking
+- [ ] Tarjeta 1 tiene el botón "Ver en Airbnb →" con bgcolor="#2c3e7a"
+- [ ] Tarjeta 2 "Apartamentos Rurales El Solsuco · Villaviciosa" (Booking) aparece INMEDIATAMENTE después de la Tarjeta 1
+- [ ] Tarjeta 2 tiene el botón "Ver en Booking →" con bgcolor="#2c3e7a"
+- [ ] Ambas tarjetas muestran la etiqueta "✅ YA RESERVADA"
+- [ ] Ambas tarjetas muestran el campo de fecha de cancelación (con color según urgencia)
+- [ ] Los resultados de Booking vienen DESPUÉS de las dos tarjetas de reservas
 - [ ] Footer presente
 
 Si alguno no se cumple, regenera esa sección antes de continuar.
