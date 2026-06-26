@@ -200,7 +200,7 @@ Construye el HTML siguiendo esta estructura en orden exacto. No omitas ninguna s
 
 ### 6.1 — Cabecera
 
-Fondo con gradiente verde, título "Alojamiento [destino] · [mes año]" en texto NEGRO, negrita, font-size 28px, subtítulo con fechas/adultos/presupuesto también en negro. NO usar texto verde ni blanco en la cabecera.
+Fondo azul marino con gradiente (#1e3a8a → #2c5aa0), título "Alojamiento [destino] · [mes año]" en texto BLANCO (#ffffff), negrita, font-size 28px, subtítulo con fechas/adultos/presupuesto también en blanco. Implementar con table/td bgcolor="#1e3a8a" para compatibilidad Gmail (no usar div/span con background-color para el fondo).
 
 ### 6.2 — Tarjetas de alojamientos ya reservados — OBLIGATORIAS, VAN AQUÍ SIEMPRE
 
